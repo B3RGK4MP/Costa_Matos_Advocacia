@@ -1,7 +1,10 @@
 (function () {
   var doc = document.documentElement;
   var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  doc.classList.add('anima');
+  /* Abertura: revela a foto da equipe assim que ela carrega */
+  var foto = document.getElementById('foto-equipe');
+  function heroPronto() { requestAnimationFrame(function () { requestAnimationFrame(function () { doc.classList.add('hero-pronto'); }); }); }
+  if (foto && !foto.complete) { foto.addEventListener('load', heroPronto); foto.addEventListener('error', heroPronto); } else { heroPronto(); }
 
   /* Cabeçalho sólido após o início da rolagem */
   var topo = document.getElementById('topo');
