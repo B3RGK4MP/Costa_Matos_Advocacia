@@ -63,20 +63,6 @@
     });
   });
 
-  /* Mapa sob demanda (carrega o Google Maps só quando o visitante pede) */
-  var carregar = document.getElementById('carregar-mapa');
-  if (carregar) {
-    carregar.addEventListener('click', function () {
-      var f = document.createElement('iframe');
-      f.src = 'https://www.google.com/maps?q=Av.+Ailton+Gomes%2C+5051%2C+Lagoa+Seca%2C+Juazeiro+do+Norte+-+CE%2C+63048-282&output=embed';
-      f.title = 'Mapa com a localização do Costa Matos Advogados';
-      f.loading = 'lazy';
-      f.referrerPolicy = 'no-referrer-when-downgrade';
-      document.getElementById('mapa').appendChild(f);
-      carregar.parentNode.hidden = true;
-    });
-  }
-
   var ano = document.getElementById('ano');
   if (ano) ano.textContent = new Date().getFullYear();
 })();
